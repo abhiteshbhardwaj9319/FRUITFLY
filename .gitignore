@@ -1,0 +1,71 @@
+# Raw connectome downloads — 1.1 GB, exceeds GitHub's 100 MB/file limit.
+# Regenerate with: python3 desktop-fly/etl_malecns.py <dir> --download
+desktop-fly/data/fly-male-cns/
+*.feather
+
+# Build artifacts
+desktop-fly/DesktopFly
+desktop-fly/windows/node_modules/
+node_modules/
+desktop-fly/windows/artifacts/
+desktop-fly/windows/demo-*.log
+desktop-fly-extracted/
+
+# Runtime output and recordings
+*.log
+logs/
+artifacts/
+test-results/
+playwright-report/
+coverage/
+recordings/
+captures/
+*.mp4
+*.mov
+*.webm
+*.mkv
+
+# Private working notes, chats, and local agent state
+PROJECT_LOG.md
+Read.md
+BLUEPRINT.md
+**/CLAUDE.md
+*.chat
+*.chat.*
+*.transcript
+*.transcript.*
+chats/
+transcripts/
+.codex/
+.agents/
+.claude/
+
+# Local secrets and machine-specific configuration
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.p12
+*.pfx
+.vscode/
+.idea/
+
+# Temporary files
+*.tmp
+*.bak
+*~
+.cache/
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+*.egg-info/
+.pytest_cache/
+.ipynb_checkpoints/
+
+# OS
+.DS_Store
+Thumbs.db

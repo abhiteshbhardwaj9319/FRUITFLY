@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self'; img-src 'self' data:;">
+  <title>FRUITFLY | Live circuit lab</title>
+  <link rel="stylesheet" href="./demo.css">
+</head>
+<body>
+  <header>
+    <div class="brand"><span class="brand-mark">✳</span> FRUITFLY <span class="brand-sub">LIVE CIRCUIT LAB</span></div>
+    <div class="header-actions"><span class="live" id="live">LOADING CIRCUITS</span><button id="sound" aria-pressed="true">Sound on</button><button id="explain">How it works</button><button id="pause">Pause</button></div>
+  </header>
+  <main>
+    <section class="intro"><div><p class="eyebrow">FROM MEASURED WIRING TO MOVEMENT</p><h1>A small circuit.<br>A visible consequence.</h1></div>
+      <div class="counts"><div><strong id="neurons">—</strong><span>simulated neurons</span></div><div><strong id="edges">—</strong><span>measured connections</span></div><div><strong>120 <small>Hz</small></strong><span>target feedback loop</span></div></div>
+    </section>
+    <div class="workspace">
+      <section class="stage-panel">
+        <div class="stage-top"><span class="eyebrow">01 / THE BODY</span><span id="mode-label">Guided walking assay</span></div>
+        <div id="stage" aria-label="Live three-dimensional fly simulation"><div class="stage-label">DROSOPHILA MELANOGASTER<span>Modeled body · tracking camera</span></div>
+          <div class="view-control"><button id="view">Oblique view</button><button id="trail" aria-pressed="true">Trail on</button></div>
+          <div class="body-readout"><span id="body-state">Waiting for data</span><p id="body-detail">Both circuits must load before this demo can run.</p></div>
+          <div class="scale-note">Coordinates in model units · no biological size calibration</div>
+        </div>
+        <div class="metrics"><div><span>FORWARD VELOCITY</span><strong id="speed">0.0 <small>u/s</small></strong></div><div><span>YAW VELOCITY</span><strong id="yaw">0.00 <small>rad/s</small></strong></div><div><span>GROUND PATH</span><strong id="distance">0.0 <small>u</small></strong></div><div><span>SIM / WALL TIME</span><strong id="realtime">—</strong></div></div>
+        <div class="controls" aria-label="Neural stimulation controls">
+          <button data-mode="walk" class="selected">↑ Walk</button><button data-mode="left">↶ Left</button><button data-mode="right">↷ Right</button><button data-mode="reverse">↓ Reverse</button><button data-mode="loom">◉ Loom</button><button data-mode="groom">Groom</button><button data-mode="wings">Wings</button><button data-mode="tap">Tap</button><button data-mode="free">Release</button>
+        </div>
+      </section>
+      <aside>
+        <section class="neural-panel"><div class="section-heading"><span class="eyebrow">02 / THE CIRCUIT</span><span class="tag">LIVE READOUT</span></div><h2>What is firing?</h2><p class="subtle">Population mean rates, not inferred intentions.</p>
+          <div id="rates"></div><div class="gf"><span><i id="gf-light"></i> Giant Fiber <small>DNp01</small></span><strong id="gf-count">0 bursts</strong></div>
+          <div class="signal-chain"><span>Brain</span><b>→</b><span>Nerve cord</span><b>→</b><span>6 legs</span></div>
+          <p class="chain-note">Female FlyWire → modeled coupling → male MaleCNS</p>
+        </section>
+        <section class="motor-panel"><div class="section-heading"><span class="eyebrow">03 / MOTOR OUTPUT</span><span class="tag">36 VALUES</span></div>
+          <div class="motor-key"><span>RF · LF · RM · LM · RH · LH</span><span>dim → active</span></div><div id="motors"></div><p class="subtle">Six muscle commands per leg. Dot = ground contact.</p>
+        </section>
+        <section class="events-panel"><span class="eyebrow">OBSERVATION LOG</span><ol id="events"></ol></section>
+      </aside>
+    </div>
+    <section class="tour"><div class="tour-copy"><span class="eyebrow" id="chapter">A GUIDED LOOK INSIDE</span><p id="caption">Start a 48-second tour, or stimulate a neuron population yourself.</p></div><button id="tour" class="primary">▶ Play 48s tour</button><button id="reset">Reset</button><div class="progress"><div id="progress"></div></div></section>
+    <footer><span id="connection-note">668 FlyWire brain neurons + 1,045 MaleCNS nerve-cord neurons. Extracted circuits, not a whole brain.</span><span>No training · fixed synaptic weights <b>F11</b> fullscreen</span></footer>
+  </main>
+  <dialog id="explanation"><button id="close-explanation" class="dialog-close" aria-label="Close explanation">✕</button><p class="eyebrow">WHAT YOU ARE WATCHING</p><h2>Real wiring. A simplified simulation.</h2>
+    <p>Researchers reconstructed neurons and their connections from electron microscopy. This app loads selected FlyWire brain circuits and a MaleCNS nerve-cord circuit.</p>
+    <ol><li><strong>Input:</strong> buttons inject current into named neurons. Loom injects a synthetic expanding-object signal into LC4/LPLC2.</li><li><strong>Neurons:</strong> leaky integrate-and-fire equations run in 1 ms steps. Measured connection counts and transmitter annotations inform modeled synaptic weights.</li><li><strong>Movement:</strong> descending activity crosses a modeled interface into the nerve cord. Motor-neuron rates produce 36 muscle commands. Joint motion and ground contact move the body; joint feedback returns to sensory neurons.</li><li><strong>Readout:</strong> rates and Giant Fiber events come from the simulation. Forward/backward labels come from body displacement. They are observations, not mind reading.</li></ol>
+    <p><strong>Demo choices:</strong> the tour schedules stimulation, not poses. This walking assay suppresses grooming, heuristic nervous darts and spontaneous flights. Giant Fiber escape remains enabled. Its flight trajectory is procedural. Neuron parameters, body forces and the female-to-male interface are assumptions; nothing learns here.</p>
+    <p><strong>Whole brain?</strong> FlyWire contains about 139,000 neurons. This app simulates 668 of them plus 1,045 nerve-cord neurons from a different fly. Whole-brain simulation needs a larger runtime, complete graph data and validated sensory/motor interfaces; loading a point cloud does not accomplish that.</p>
+  </dialog>
+  <script type="module" src="./demo.js"></script>
+</body>
+</html>
