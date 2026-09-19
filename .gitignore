@@ -24,6 +24,7 @@ captures/
 *.mov
 *.webm
 *.mkv
+!media/fruitfly-demo.mp4
 
 # Private working notes, chats, and local agent state
 PROJECT_LOG.md

@@ -12,6 +12,14 @@ back to the dashboard.
 ![Status: experimental](https://img.shields.io/badge/status-experimental-e6b071)
 ![Platform: Windows](https://img.shields.io/badge/platform-Windows-4b9cd3)
 
+## Watch the demo
+
+[![Watch the FRUITFLY connected simulation demo](media/fruitfly-demo-poster.jpg)](media/fruitfly-demo.mp4)
+
+**[▶ Watch the 51-second connected simulation](media/fruitfly-demo.mp4)** — the
+desktop fly and dashboard are synchronized views of the same running neural and
+body simulation. For the best experience, enable sound and view it full screen.
+
 ## What is actually simulated
 
 - **668 selected FlyWire neurons** from the female adult brain, including visual,
@@ -22,7 +30,7 @@ back to the dashboard.
 - A fixed 120 Hz sensory, neural, motor, and mechanical feedback loop.
 - Six leg controllers receiving six antagonist motor commands each.
 
-This is connectome-based simulation, not a living brain and not a complete brain.
+This is connectome-based simulation.
 Neuron identities and anatomical contact counts come from published datasets.
 Neuron physiology, the bridge between the female FlyWire brain and male CNS,
 muscle recruitment, and body mechanics are models. The fly does not learn; its
@@ -40,9 +48,8 @@ Remove-Item Env:\ELECTRON_RUN_AS_NODE -ErrorAction SilentlyContinue
 npm run record
 ```
 
-Quit an older Desktop Fly tray instance first. `npm run record` opens the
-transparent desktop fly and its connected dashboard. Click **Play 48s tour** for
-walking, steering, reverse, grooming, wing posture, tap/startle, looming escape,
+`npm run record` opens the transparent desktop fly and its connected dashboard.
+Click **Play 48s tour** for walking, steering, reverse, grooming, wing posture, tap/startle, looming escape,
 live sound, and a movement trail. Use **F11** for fullscreen.
 
 Other modes:
